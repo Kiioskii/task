@@ -3,7 +3,10 @@ import Trade from "../models/Trade";
 import bianceAPI from "../config/biance";
 import logger from "../utils/logger";
 
-const saveData = async (symbol: string, trades: any): Promise<ITrade[]> => {
+export const saveData = async (
+  symbol: string,
+  trades: any
+): Promise<ITrade[]> => {
   const formData: ITrade[] = trades.map((t: any) => {
     return {
       symbol,
@@ -16,7 +19,7 @@ const saveData = async (symbol: string, trades: any): Promise<ITrade[]> => {
   return response;
 };
 
-const getTrades = async (
+export const getTrades = async (
   symbol: string,
   startTime: number,
   endTime: number
@@ -32,6 +35,7 @@ const getTrades = async (
   }
 };
 
-const getTradesFromDB = async (symbol: string): Promise<ITrade> => {
-  const response = await Trade.find({ symbol });
+export const getTradesFromDB = async (symbol: string): Promise<ITrade[]> => {
+  const response = await Trade.find({ symbol }).sort({ timestamp: -1 }).lean();
+  return response;
 };
