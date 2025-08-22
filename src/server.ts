@@ -2,6 +2,7 @@ import app from "./app";
 import logger from "./utils/logger";
 
 const PORT = process.env.PORT || 5000;
+// We expose app on localhost
 app.listen(PORT, () => {
   logger.info(`Server is running on http://localhost:${PORT}`);
 });
