@@ -1,0 +1,28 @@
+Application to save and analyze cryptocurrency data.
+
+Steps to start app:
+
+1. Create file `.env` in main dir and fill dependencies:
+   MONGO_URI = <MONGO DB URI>
+   BIANCE_API_KEY= <API KEY FROM BIANCE>
+   BIANCE_SECRET_KEY= <SECRET KEY FROM BIANCE>
+   PORT = <YOUR PORT>
+
+1. In terminal type: `npm install`
+1. In terminal type: `npm run dev`
+
+Available Endpoints:
+
+1. POST `/trades/fetch`
+   Params: {symbol:string startTime:string, endTime: string}
+   Recommended format of startTime and endTime -> 'DD.MM.YYYY'
+   This endpoint save data from symbol on specific period of time and save them in database.
+
+2. GET `/trades/analyze`
+   Params: {symbol:string startTime:string, endTime: string}
+   Recommended format of startTime and endTime -> 'DD.MM.YYYY'
+   This endpoint analyze trades on specific period of time
+
+3. GET `trades/database`
+   Params: {symbol:string }
+   This endpoint return symbol data saved in database

@@ -7,6 +7,9 @@ import {
   saveData,
 } from "../services/tradeServices";
 
+// Controller to dowland data from Biance API and save them in DB
+// Recife data through params
+// Params: symbol
 export const fetchTrades = async (
   req: Request,
   res: Response,
@@ -26,6 +29,9 @@ export const fetchTrades = async (
   }
 };
 
+// Controller to get data from databse
+// Recife data through params
+// Params: symbol
 export const checkSavedTrades = async (
   req: Request,
   res: Response,
